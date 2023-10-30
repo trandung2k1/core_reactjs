@@ -1,7 +1,10 @@
 import React, { Children } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 const Button = (props: { children: React.ReactNode }) => {
   // console.log(Children.only(props?.children));
+  const data = useFetch('https://jsonplaceholder.typicode.com/users');
+  console.log(data);
   const result: React.ReactElement[] = [];
   Children.forEach(props.children, (child, index) => {
     if (React.isValidElement(child)) {
